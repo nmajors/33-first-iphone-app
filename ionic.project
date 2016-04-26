@@ -1,0 +1,12 @@
+{
+  "name": "boilerplate",
+   "gulpStartupTasks": [
+    "default"
+  ],
+  "documentRoot": "www",
+  "createDocumentRoot": "www",
+  "watchPatterns": [
+    "www/js/*",
+    "www/styles/**/*"
+  ]
+}
