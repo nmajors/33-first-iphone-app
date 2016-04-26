@@ -1,23 +1,19 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
+import movies from './modules/movies'
 
-import account from './modules/account';
-import chats from './modules/chats';
-import dash from './modules/dash';
-import tabs from './modules/tabs';
+
 
 let App = angular.module('app', [
   'ionic',
   'ui.router',
-  'tabs',
-  'account',
-  'chats',
-  'dash'
+
+  'tiy.movies'
 ]);
 
 function config($urlRouterProvider) {
-  $urlRouterProvider.otherwise("/tab/dash");
+  $urlRouterProvider.otherwise("/movies");
 }
 
 App.config(config);
