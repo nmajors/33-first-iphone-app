@@ -1,10 +1,12 @@
 class MoviesController {
-  constructor($ionicModal, $scope, $http) {
+  constructor($firebaseArray, $ionicModal, $scope, $http) {
+    let ref = new Firebase ("https://nms-movies.firebaseio.com/");
+    this.movies = $firebaseArray(ref);
     this._$http = $http;
     this.modal = $ionicModal.fromTemplate(require('./views/form.html'), {
       scope: $scope
     })
-    this.movies = [];
+    // this.movies = [];
     this.movieTitle="";
 
   }
@@ -18,7 +20,7 @@ class MoviesController {
 		.get(`http://www.omdbapi.com/?t=${this.movieTitle}&y=&plot=short&r=json`)
 		.then((response) =>{
 			this.movie=response.data;
-      this.movies.push(this.movie);
+      this.movies.$add(this.movie);
       console.log(this.movies);
 		});
     this.modal.hide();

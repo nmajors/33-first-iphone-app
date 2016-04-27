@@ -1,13 +1,16 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import firebase from 'firebase';
+import angularfire from 'angularfire';
 
-import movies from './modules/movies'
+import movies from './modules/movies';
 
 
 
 let App = angular.module('app', [
   'ionic',
   'ui.router',
+  'firebase',
 
   'tiy.movies'
 ]);
