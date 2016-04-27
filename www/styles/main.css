@@ -9788,3 +9788,14 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+ion-content {
+  background-color: #a9a9a9; }
+
+.listItem {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin: 5px auto; }
+
+.plot {
+  padding-top: 5px; }
