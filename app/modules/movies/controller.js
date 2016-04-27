@@ -8,14 +8,29 @@ class MoviesController {
     })
     // this.movies = [];
     this.movieTitle = "";
-    this.showDelete = false;
+    this.showDelete=false;
+
 
 
   }
+
+// function($scope) {
+//   $scope.data = {
+//     showDelete: false
+//   };
+//   $scope.onItemDelete = function(item) {
+//     $scope.items.splice($scope.items.indexOf(item), 1);
+//   };
+//    $scope.items = this.movies;
+// }
+
+
 
   showForm(){
     this.modal.show();
   }
+
+
   addMovie(){
     let movieTitle=this.movieTitle;
     this._$http
@@ -29,9 +44,14 @@ class MoviesController {
     this.movieTitle="";
   }
 
-  deleteMovie(){
-    // $scope.shouldShowDelete = false;
-    this.movies.$remove(this.movie);
+  toggleDelete(){
+    this.showDelete = !this.showDelete;
+    console.log(this.showDelete);
+  }
+
+  deleteMovie(movie){
+    console.log("deleting " + movie);
+    this.movies.$remove(movie);
   }
 }
 

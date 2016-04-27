@@ -1,32 +1,49 @@
 
 <ion-view>
   <ion-nav-bar class="bar-dark">
-
+    <ion-nav-buttons side="primary">
+      <div class="buttons">
+              <button class="button button-icon icon ion-ios-minus-outline"
+                ng-click="moviesCtrl.showDelete = !moviesCtrl.showDelete; data.showReorder = false"></button>
+            </div>
+      <!-- <i class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete;" ng-click="data.showDelete"></i> -->
+      <!-- <i class="ion-minus-circled"></i> -->
+    </ion-nav-buttons>
 
     <ion-nav-title> Cool Movies
     </ion-nav-title>
 
+
+
     <ion-nav-buttons side="secondary">
-        <button class="button button-positive" ng-click="moviesCtrl.showForm()">Add New Movie</button>
+        <button class="button button-positive" ng-click="moviesCtrl.showForm()">New Movie</button>
     </ion-nav-buttons>
 
-   </ion-nav-bar>
-
+  </ion-nav-bar>
   <ion-content>
-    <ion-toggle ng-model="shouldShowDelete">
-    Show Delete?
-  </ion-toggle>
-    <ion-list show-delete="shouldShowDelete" class="list">
-      <ion-item ng-repeat="movie in moviesCtrl.movies" class="item item-thumbnail-left listItem">
-        <ion-delete-button class="ion-minus-circled" ng-click="moviesCtrl.deleteMovie()">
-   </ion-delete-button>
 
+    <!-- <ion-toggle ng-model="shouldShowDelete">
+    Show Delete?
+  </ion-toggle> -->
+  <!-- <ion-toggle ng-model="showDelete">
+    Show Delete
+  </ion-toggle> -->
+
+    <ion-list show-delete="moviesCtrl.showDelete">
+      <!-- <button class="button button-icon icon ion-ios-minus-outline"
+            ng-click="showDelete = !showDelete"></button> -->
+      <ion-item ng-repeat="movie in moviesCtrl.movies" item="movie"
+                  href="#/item/{{item.id}}"  class="item item-thumbnail-left item-remove-animate listItem">
+         <ion-delete-button class="ion-minus-circled" ng-click="moviesCtrl.deleteMovie(movie)"></ion-delete-button>
+        <!-- <ion-delete-button class="ion-minus-circled"
+                             ng-click="onItemDelete(item)">
+          </ion-delete-button> -->
         <img src="{{ movie.Poster }}">
         <h2 class="title">{{ movie.Title }}</h2>
         <p class="plot">{{ movie.Plot }}</p>
 
     </ion-item>
-    </div>
   </ion-list>
 
   </ion-content>
