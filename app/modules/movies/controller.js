@@ -7,7 +7,9 @@ class MoviesController {
       scope: $scope
     })
     // this.movies = [];
-    this.movieTitle="";
+    this.movieTitle = "";
+    this.showDelete = false;
+
 
   }
 
@@ -25,6 +27,11 @@ class MoviesController {
 		});
     this.modal.hide();
     this.movieTitle="";
+  }
+
+  deleteMovie(){
+    // $scope.shouldShowDelete = false;
+    this.movies.$remove(this.movie);
   }
 }
 

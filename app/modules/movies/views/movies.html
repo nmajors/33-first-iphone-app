@@ -1,23 +1,33 @@
 
 <ion-view>
-  <ion-nav-bar class="bar-dark" align-title="left">
+  <ion-nav-bar class="bar-dark">
 
 
     <ion-nav-title> Cool Movies
     </ion-nav-title>
+
     <ion-nav-buttons side="secondary">
         <button class="button button-positive" ng-click="moviesCtrl.showForm()">Add New Movie</button>
     </ion-nav-buttons>
+
    </ion-nav-bar>
 
   <ion-content>
-    <div class="list">
-      <a class="item item-thumbnail-left listItem" href="#" ng-repeat="movie in moviesCtrl.movies">
+    <ion-toggle ng-model="shouldShowDelete">
+    Show Delete?
+  </ion-toggle>
+    <ion-list show-delete="shouldShowDelete" class="list">
+      <ion-item ng-repeat="movie in moviesCtrl.movies" class="item item-thumbnail-left listItem">
+        <ion-delete-button class="ion-minus-circled" ng-click="moviesCtrl.deleteMovie()">
+   </ion-delete-button>
+
         <img src="{{ movie.Poster }}">
         <h2 class="title">{{ movie.Title }}</h2>
         <p class="plot">{{ movie.Plot }}</p>
-      </a>
+
+    </ion-item>
     </div>
-    </ul>
+  </ion-list>
+
   </ion-content>
 </ion-view>
